@@ -1,0 +1,28 @@
+import sys
+
+def solve():
+    line1 = sys.stdin.readline().split()
+    if not line1: return
+    n, m = map(int, line1)
+    a = list(map(int, sys.stdin.readline().split()))
+
+    has_transition = False
+    for i in range(m - 1):
+        if a[i+1] != a[i] + 1:
+            has_transition = True
+            break
+    
+    if not has_transition:
+        max_val = a[-1]
+        print(max(0, n - max_val + 1))
+    else:
+        print(1)
+
+def main():
+    line = sys.stdin.readline()
+    if line:
+        t = int(line)
+        for _ in range(t):
+            solve()
+
+main()

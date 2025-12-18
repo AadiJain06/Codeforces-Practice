@@ -1,0 +1,24 @@
+import sys
+
+def solve():
+    try:
+        sys.stdin.readline()
+        b = list(map(int, sys.stdin.readline().split()))
+    except:
+        return
+
+    unique_beauties = set(b)
+    
+    max_apples = len(unique_beauties)
+    
+    print(max_apples)
+
+def main():
+    try:
+        t = int(sys.stdin.readline())
+        for _ in range(t):
+            solve()
+    except:
+        pass
+
+main()
