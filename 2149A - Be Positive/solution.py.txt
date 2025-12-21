@@ -1,0 +1,32 @@
+import sys
+
+def solve():
+    line1 = sys.stdin.readline()
+    if not line1: return
+    n = int(line1)
+    a = list(map(int, sys.stdin.readline().split()))
+
+    ans = 0
+    neg = 0
+    for x in a:
+        if x == 0:
+            ans += 1
+        if x == -1:
+            neg += 1
+    
+    if neg % 2 == 1:
+        ans += 1 # Wait, the example says -1 to 1 is 2 operations.
+        # Let's re-read: -1 to 0 is 1 op. 0 to 1 is 1 op.
+        # So -1 to 1 is indeed 2 operations.
+        # If neg is odd, we add 1 to make it even (turning -1 to 0),
+        # but then that 0 makes the product 0, so we must turn it to 1.
+        # That's 2 ops total for that one -1.
+        ans += 1 
+        
+    print(ans)
+
+line = sys.stdin.readline()
+if line:
+    t = int(line)
+    for _ in range(t):
+        solve()
