@@ -1,0 +1,23 @@
+import sys
+
+def solve():
+    try:
+        line = sys.stdin.readline().split()
+        if not line: return
+        x, n = map(int, line)
+        
+        if n % 2 == 0:
+            print(0)
+        else:
+            print(x)
+    except:
+        pass
+
+def main():
+    line = sys.stdin.readline()
+    if line:
+        t = int(line)
+        for _ in range(t):
+            solve()
+
+main()
