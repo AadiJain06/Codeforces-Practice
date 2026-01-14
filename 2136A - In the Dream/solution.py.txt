@@ -1,0 +1,16 @@
+import sys
+
+def solve():
+    data = sys.stdin.read().split()
+    if not data: return
+    it = iter(data)
+    t = int(next(it))
+    for _ in range(t):
+        a, b, c, d = map(int, [next(it) for _ in range(4)])
+        da, db = c - a, d - b
+        if a <= 2*(b+1) and b <= 2*(a+1) and da <= 2*(db+1) and db <= 2*(da+1):
+            print("YES")
+        else:
+            print("NO")
+
+solve()
