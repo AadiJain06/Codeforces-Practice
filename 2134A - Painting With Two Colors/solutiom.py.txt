@@ -1,0 +1,26 @@
+import sys
+
+def solve():
+    input = sys.stdin.read().split()
+    t = int(input[0])
+    idx = 1
+    res = []
+    
+    for _ in range(t):
+        n = int(input[idx])
+        a = int(input[idx+1])
+        b = int(input[idx+2])
+        idx += 3
+        
+        # A coloring is symmetric if both segments are centered 
+        # or if the red is completely covered by a symmetric blue.
+        # Condition 1: Blue is centered (n+b must be even or n,b same parity)
+        # Condition 2: Red is centered or hidden by centered blue.
+        if (n + b) % 2 == 0 and ((n + a) % 2 == 0 or a <= b):
+            res.append("YES")
+        else:
+            res.append("NO")
+            
+    sys.stdout.write("\n".join(res) + "\n")
+
+solve()
