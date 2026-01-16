@@ -1,0 +1,28 @@
+import sys
+
+def solve():
+    # Read all input at once for speed
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    curr = 1
+    results = []
+    
+    for _ in range(t):
+        n = int(input_data[curr])
+        a = input_data[curr + 1 : curr + 1 + n]
+        curr += n + 1
+        
+        # Check if any value appears more than once
+        # Using a set to find duplicates
+        if len(set(a)) < n:
+            results.append("YES")
+        else:
+            results.append("NO")
+            
+    sys.stdout.write("\n".join(results) + "\n")
+
+if __name__ == "__main__":
+    solve()
