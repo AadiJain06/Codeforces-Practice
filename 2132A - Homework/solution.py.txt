@@ -1,0 +1,31 @@
+import sys
+
+def solve():
+    d = sys.stdin.read().split()
+    if not d:
+        return
+    
+    t = int(d[0])
+    p = 1
+    r = []
+    
+    for _ in range(t):
+        n = int(d[p])
+        a = d[p+1]
+        m = int(d[p+2])
+        b = d[p+3]
+        c = d[p+4]
+        
+        s = a
+        for i in range(m):
+            if c[i] == 'V':
+                s = b[i] + s
+            else:
+                s = s + b[i]
+        
+        r.append(s)
+        p += 5
+
+    sys.stdout.write("\n".join(r) + "\n")
+
+solve()
