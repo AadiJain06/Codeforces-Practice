@@ -1,0 +1,35 @@
+import sys
+
+def solve():
+    data = sys.stdin.read().split()
+    if not data: return
+    
+    t_cases = int(data[0])
+    ptr = 1
+    
+    for _ in range(t_cases):
+        n = int(data[ptr])
+        c = int(data[ptr+1])
+        a = sorted(map(int, data[ptr+2 : ptr+2+n]))
+        ptr += n + 2
+        
+        # caps[t] is the maximum initial weight a bag can have 
+        # to be destroyed for free at second t
+        caps = []
+        for t in range(n):
+            caps.append(c >> t) # equivalent to c // (2**t)
+            
+        caps.sort()
+        
+        # Greedy matching: smallest bags with smallest capacities
+        free_count = 0
+        a_idx = 0
+        for cap in caps:
+            if cap > 0 and a_idx < n:
+                if a[a_idx] <= cap:
+                    free_count += 1
+                    a_idx += 1
+        
+        print(n - free_count)
+
+solve()
