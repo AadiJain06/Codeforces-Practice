@@ -1,0 +1,42 @@
+import sys
+
+def solve():
+    # Use sys.stdin.read for faster input processing
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    ptr = 1
+    
+    for _ in range(t):
+        n = int(input_data[ptr])
+        a = list(map(int, input_data[ptr+1 : ptr+1+n]))
+        b = list(map(int, input_data[ptr+1+n : ptr+1+2*n]))
+        ptr += 1 + 2*n
+        
+        iterations = 0
+        while True:
+            iterations += 1
+            
+            # Step 1: Decrease an a_i > b_i
+            decreased = False
+            for i in range(n):
+                if a[i] > b[i]:
+                    a[i] -= 1
+                    decreased = True
+                    break
+            
+            # Step 2: Increase an a_i < b_i
+            for i in range(n):
+                if a[i] < b[i]:
+                    a[i] += 1
+                    break
+            
+            # End if Step 1 was ignored
+            if not decreased:
+                break
+        
+        print(iterations)
+
+solve()
