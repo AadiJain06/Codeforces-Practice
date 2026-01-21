@@ -1,0 +1,19 @@
+import sys
+
+def solve():
+    data = sys.stdin.read().split()
+    if not data:
+        return
+    
+    t = int(data[0])
+    results = []
+    
+    for i in range(1, t + 1):
+        x_str = data[i]
+        # The smallest digit in x is the smallest non-negative integer y
+        # since single-digit integers (0-9) are the smallest possible values.
+        results.append(min(x_str))
+        
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()
