@@ -1,0 +1,45 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    t = int(input_data[0])
+    ptr = 1
+    for _ in range(t):
+        l1, b1, l2, b2, l3, b3 = map(int, input_data[ptr:ptr+6])
+        ptr += 6
+        
+        area = l1*b1 + l2*b2 + l3*b3
+        a = int(area**0.5)
+        
+        if a * a != area:
+            print("NO")
+            continue
+            
+        possible = False
+        
+        # Case A: All three stacked in one direction
+        if (l1 == a and l2 == a and l3 == a and b1 + b2 + b3 == a): possible = True
+        if (b1 == a and b2 == a and b3 == a and l1 + l2 + l3 == a): possible = True
+        
+        # Case B: Rectangle 1 takes one full side, 2 and 3 are stacked
+        if l1 == a:
+            rem_h = a - b1
+            if (l2 + l3 == a and b2 == rem_h and b3 == rem_h): possible = True
+        if b1 == a:
+            rem_w = a - l1
+            if (b2 + b3 == a and l2 == rem_w and l3 == rem_w): possible = True
+            
+        # Since l1, b1 are largest, we don't strictly need to check 
+        # l2 == a or l3 == a as the primary side, but for safety:
+        if l2 == a:
+            rem_h = a - b2
+            if (l1 + l3 == a and b1 == rem_h and b3 == rem_h): possible = True
+        if b2 == a:
+            rem_w = a - l2
+            if (b1 + b3 == a and l1 == rem_w and l3 == rem_w): possible = True
+            
+        print("YES" if possible else "NO")
+
+solve()
