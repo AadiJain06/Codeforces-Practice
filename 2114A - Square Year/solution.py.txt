@@ -1,0 +1,29 @@
+import sys
+
+def solve():
+    # Read all input data
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    results = []
+    
+    for i in range(1, t + 1):
+        s_val = int(input_data[i])
+        
+        # Calculate the integer square root
+        root = int(s_val**0.5)
+        
+        # Check if it's a perfect square
+        if root * root == s_val:
+            # We can pick any a, b such that a + b = root.
+            # Splitting the root into (root, 0) is the simplest valid pair.
+            results.append(f"{root} 0")
+        else:
+            results.append("-1")
+            
+    # Output all results joined by newlines
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()
