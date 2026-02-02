@@ -1,0 +1,40 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    ptr = 1
+    results = []
+    
+    for _ in range(t):
+        k, a, b, x, y = map(int, input_data[ptr : ptr + 5])
+        ptr += 5
+        
+        ans = 0
+        
+        # Option 1: Maximize Type 1 first
+        if k >= a:
+            n1 = (k - a) // x + 1
+            rem_k = k - (n1 * x)
+            n2 = 0
+            if rem_k >= b:
+                n2 = (rem_k - b) // y + 1
+            ans = max(ans, n1 + n2)
+            
+        # Option 2: Maximize Type 2 first
+        if k >= b:
+            n2 = (k - b) // y + 1
+            rem_k = k - (n2 * y)
+            n1 = 0
+            if rem_k >= a:
+                n1 = (rem_k - a) // x + 1
+            ans = max(ans, n2 + n1)
+            
+        results.append(str(ans))
+        
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()
