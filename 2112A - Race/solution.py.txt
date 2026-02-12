@@ -1,0 +1,39 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    ptr = 1
+    results = []
+    
+    for _ in range(t):
+        a = int(input_data[ptr])
+        x = int(input_data[ptr+1])
+        y = int(input_data[ptr+2])
+        ptr += 3
+        
+        found = False
+        # Constraints are small (1-100), so we can check all possible points b
+        # We can check a bit beyond 1-100 to be safe, e.g., 0 to 101.
+        for b in range(0, 102):
+            if b == a:
+                continue
+            
+            # Bob must be strictly closer to both x and y
+            dist_bob_x = abs(b - x)
+            dist_alice_x = abs(a - x)
+            dist_bob_y = abs(b - y)
+            dist_alice_y = abs(a - y)
+            
+            if dist_bob_x < dist_alice_x and dist_bob_y < dist_alice_y:
+                found = True
+                break
+        
+        results.append("YES" if found else "NO")
+        
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()
