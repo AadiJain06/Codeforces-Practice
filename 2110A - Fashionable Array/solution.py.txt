@@ -1,0 +1,30 @@
+import sys
+
+def solve():
+    # Using generator to handle large inputs efficiently
+    input = sys.stdin.read().split()
+    if not input: return
+    
+    t = int(input[0])
+    ptr = 1
+    
+    for _ in range(t):
+        n = int(input[ptr])
+        a = sorted(map(int, input[ptr+1 : ptr+1+n]))
+        ptr += n + 1
+        
+        # A fashionable array must have min and max with same parity
+        # Since the array is sorted, a[i] is min and a[j] is max
+        max_kept = 1
+        for i in range(n):
+            for j in range(i + 1, n):
+                if (a[i] + a[j]) % 2 == 0:
+                    # Everything between index i and j is valid
+                    # because it is >= a[i] and <= a[j]
+                    current_count = j - i + 1
+                    if current_count > max_kept:
+                        max_kept = current_count
+                        
+        print(n - max_kept)
+
+solve()
