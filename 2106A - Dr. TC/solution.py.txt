@@ -1,0 +1,29 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    ptr = 1
+    results = []
+    
+    for _ in range(t):
+        n = int(input_data[ptr])
+        s = input_data[ptr + 1]
+        ptr += 2
+        
+        # Count original number of 1s (K)
+        k = s.count('1')
+        
+        # Calculate total using the derived logic:
+        # Each '1' in s becomes a '0' once and stays '1' (n-1) times.
+        # Each '0' in s becomes a '1' once and stays '0' (n-1) times.
+        total_ones = k * (n - 1) + (n - k) * 1
+        
+        results.append(str(total_ones))
+        
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()
