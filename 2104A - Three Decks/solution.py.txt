@@ -1,0 +1,37 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    ptr = 1
+    results = []
+    
+    for _ in range(t):
+        a = int(input_data[ptr])
+        b = int(input_data[ptr+1])
+        c = int(input_data[ptr+2])
+        ptr += 3
+        
+        total = a + b + c
+        
+        # Condition 1: Total must be divisible by 3
+        if total % 3 != 0:
+            results.append("NO")
+            continue
+            
+        k = total // 3
+        
+        # Condition 2: Final count must be reachable
+        # Deck a and b can only increase or stay the same (k >= b)
+        # Deck c must decrease by at least 1 (k < c)
+        if k >= b and k < c:
+            results.append("YES")
+        else:
+            results.append("NO")
+            
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()

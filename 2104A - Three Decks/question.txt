@@ -1,0 +1,97 @@
+Codeforces
+In English По-русски
+aadijain06 | Logout
+ You have +322! Wow!
+
+HomeTopCatalogContestsGymProblemsetGroupsRatingEduAPICalendarHelp
+
+
+Educational Codeforces Round 178 (Rated for Div. 2)
+Finished
+Practice
+Add to favourites
+→ Virtual participation
+Virtual contest is a way to take part in past contest, as close as possible to participation on time. It is supported only ICPC mode for virtual contests. If you've seen these problems, a virtual contest is not for you - solve these problems in the archive. If you just want to solve some problem from a contest, a virtual contest is not for you - solve this problem in the archive. Never use someone else's code, read the tutorials or communicate with other person during a virtual contest.
+→ Clone Contest to Mashup
+You can clone this contest to a mashup.
+
+→ Submit?
+Language:	
+Python 3.13.2
+Almost always, if you send a solution on PyPy, it works much faster
+Choose file:	No file chosen
+→ Problem tags
+math*800
+No tag edit access
+→ Contest materials
+Announcement
+Tutorial
+ProblemsSubmitStatusStandingsCustom test
+A. Three Decks
+time limit per test2 seconds
+memory limit per test512 megabytes
+Monocarp placed three decks of cards in a row on the table. The first deck consists of a
+ cards, the second deck consists of b
+ cards, and the third deck consists of c
+ cards, with the condition a<b<c
+.
+
+Monocarp wants to take some number of cards (at least one, but no more than c
+) from the third deck and distribute them between the first two decks so that each of the taken cards ends up in either the first or the second deck. It is possible that all the cards taken from the third deck will go into the same deck.
+
+Your task is to determine whether Monocarp can make the number of cards in all three decks equal using the described operation.
+
+Input
+The first line contains a single integer t
+ (1≤t≤104
+) — the number of test cases.
+
+The only line of each test case contains three integers a,b
+, and c
+ (1≤a,b,c≤108
+) — the number of cards in the first, second, and third decks, respectively.
+
+Additional constraint on the input: a<b<c
+.
+
+Output
+For each test case, output "YES" (without quotes) if Monocarp can make the number of cards in all three decks equal using the described operation. Otherwise, output "NO" (without quotes).
+
+Example
+InputCopy
+4
+3 5 10
+12 20 30
+3 5 7
+1 5 6
+OutputCopy
+YES
+NO
+YES
+NO
+Note
+In the first test case, Monocarp has to take 4
+ cards from the third deck, put 3
+ cards in the first deck, and 1
+ card in the second deck. Thus, there will be 6
+ cards in all three decks.
+
+In the second test case, it is impossible to make the number of cards in all three decks equal.
+
+In the third test case, Monocarp has to take 2
+ cards from the third deck and put both in the first deck. Thus, there will be 5
+ cards in all three decks.
+
+In the fourth test case, it is also impossible to make the number of cards in all three decks equal.
+
+
+
+Codeforces (c) Copyright 2010-2026 Mike Mirzayanov
+The only programming contests Web 2.0 platform
+Server time: Feb/17/2026 14:10:52UTC+5.5 (j2).
+Desktop version, switch to mobile version.
+Privacy Policy | Terms and Conditions
+Supported by
+TON
+ 
+ITMO University
