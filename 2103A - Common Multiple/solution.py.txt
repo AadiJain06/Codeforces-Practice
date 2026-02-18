@@ -1,0 +1,24 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    t = int(input_data[0])
+    ptr = 1
+    results = []
+    
+    for _ in range(t):
+        n = int(input_data[ptr])
+        a = list(map(int, input_data[ptr+1 : ptr+1+n]))
+        ptr += n + 1
+        
+        # The maximum size of a beautiful subsequence is the number 
+        # of distinct elements in the array.
+        unique_elements = set(a)
+        results.append(str(len(unique_elements)))
+        
+    sys.stdout.write("\n".join(results) + "\n")
+
+solve()
