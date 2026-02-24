@@ -1,0 +1,71 @@
+import sys
+
+def solve():
+    data = sys.stdin.read().split()
+    if not data:
+        return
+    
+    t = int(data[0])
+    ptr = 1
+    
+    for _ in range(t):
+        n = int(data[ptr])
+        s = data[ptr+1]
+        ptr += 2
+        
+        # We maintain the current range of available stick lengths
+        low = 1
+        high = n
+        result = [0] * n
+        
+        # The logic: 
+        # If the first requirement s[0] is '<', the first element 
+        # must be the 'high' so that the second can be 'smaller'.
+        # If the first requirement s[0] is '>', the first element
+        # must be the 'low' so that the second can be 'larger'.
+        
+        if s[0] == '<':
+            result[0] = high
+            high -= 1
+        else:
+            result[0] = low
+            low += 1
+            
+        # For subsequent elements i+1 (from s[i])
+        for i in range(n - 1):
+            if s[i] == '<':
+                # Must be smaller than all previous
+                result[i+1] = low
+                low += 1
+            else:
+                # Must be larger than all previous
+                result[i+1] = high
+                high -= 1
+                
+        # Wait, the above logic is slightly inverted based on how we 
+        # consume the range. Let's fix the greedy:
+        # If s[i] == '<', result[i+1] = current global min
+        # If s[i] == '>', result[i+1] = current global max
+        # To make this work, result[0] must be the remaining one.
+        
+        # Let's use a simpler stack/range approach:
+        L, R = 1, n
+        res = [0] * n
+        # Determine res[0] by looking at the first requirement
+        # But even better: Use the property that 
+        # s[i] tells us if res[i+1] is the new min or new max.
+        
+        L, R = 1, n
+        res = [0] * n
+        for i in range(n - 1, 0, -1):
+            if s[i-1] == '<':
+                res[i] = L
+                L += 1
+            else:
+                res[i] = R
+                R -= 1
+        res[0] = L # or R, they will be equal
+        
+        print(*(res))
+
+solve()

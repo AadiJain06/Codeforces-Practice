@@ -1,0 +1,143 @@
+Codeforces
+In English По-русски
+aadijain06 | Logout
+ You have +322! Wow!
+
+HomeTopCatalogContestsGymProblemsetGroupsRatingEduAPICalendarHelp
+
+
+Neowise Labs Contest 1 (Codeforces Round 1018, Div. 1 + Div. 2)
+Finished
+Practice
+Add to favourites
+→ Virtual participation
+Virtual contest is a way to take part in past contest, as close as possible to participation on time. It is supported only ICPC mode for virtual contests. If you've seen these problems, a virtual contest is not for you - solve these problems in the archive. If you just want to solve some problem from a contest, a virtual contest is not for you - solve this problem in the archive. Never use someone else's code, read the tutorials or communicate with other person during a virtual contest.
+→ Clone Contest to Mashup
+You can clone this contest to a mashup.
+
+→ Submit?
+Language:	
+Python 3.13.2
+Almost always, if you send a solution on PyPy, it works much faster
+Choose file:	No file chosen
+→ Problem tags
+constructive algorithmsgreedy*800
+No tag edit access
+→ Contest materials
+Announcement (en)
+Tutorial (en)
+ProblemsSubmitStatusStandingsCustom test
+A. Wonderful Sticks
+time limit per test1 second
+memory limit per test256 megabytes
+You are the proud owner of n
+ sticks. Each stick has an integer length from 1
+ to n
+. The lengths of the sticks are distinct.
+
+You want to arrange the sticks in a row. There is a string s
+ of length n−1
+ that describes the requirements of the arrangement.
+
+Specifically, for each i
+ from 1
+ to n−1
+:
+
+If si=<
+, then the length of the stick at position i+1
+ must be smaller than all sticks before it;
+If si=>
+, then the length of the stick at position i+1
+ must be larger than all sticks before it.
+Find any valid arrangement of sticks. We can show that an answer always exists.
+
+Input
+Each test contains multiple test cases. The first line contains the number of test cases t
+ (1≤t≤500
+). The description of the test cases follows.
+
+The first line of each test case contains a single integer n
+ (2≤n≤100
+) — the number of sticks.
+
+The second line of each test case contains a single string s
+ of length n−1
+ consisting of characters <
+ and >
+ — describing the requirements of the arrangement.
+
+Output
+For each test case, output n
+ integers a1,a2,…,an
+ (1≤ai≤n
+, the ai
+ are distinct) — the lengths of the sticks in order. If there are multiple solutions, print any of them.
+
+Example
+InputCopy
+5
+2
+<
+5
+<<><
+2
+>
+3
+<>
+7
+><>>><
+OutputCopy
+2 1 
+4 3 2 5 1 
+1 2 
+2 1 3 
+3 4 2 5 6 7 1 
+Note
+For the first test case, the requirements of the arrangement are as follows:
+
+s1=<
+, which means a2
+ is smaller than a1
+.
+Thus, one possible arrangement is [2,1]
+.
+
+For the second test case, the requirements of the arrangement are as follows:
+
+s1=<
+, which means a2
+ is smaller than a1
+;
+s2=<
+, which means a3
+ is smaller than a1
+ and a2
+;
+s3=>
+, which means a4
+ is larger than a1
+, a2
+, and a3
+;
+s4=<
+, which means a5
+ is smaller than a1
+, a2
+, a3
+, and a4
+.
+Thus, one possible arrangement is [4,3,2,5,1]
+.
+
+
+
+Codeforces (c) Copyright 2010-2026 Mike Mirzayanov
+The only programming contests Web 2.0 platform
+Server time: Feb/24/2026 14:42:38UTC+5.5 (l2).
+Desktop version, switch to mobile version.
+Privacy Policy | Terms and Conditions
+Supported by
+TON
+ 
+ITMO University
